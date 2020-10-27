@@ -481,9 +481,9 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'WinTenCermin Search',
-                                 author_name='WinTenCermin',
-                                 author_url='https://github.com/WinTenDev/WinTenCermin',
+                                 title = 'Yasir Mirror Search',
+                                 author_name='Yasir Mirror Bot',
+                                 author_url='https://github.com/yasirarism/WinTenCermin',
                                  html_content=content)
         return
 
