@@ -135,7 +135,7 @@ class GoogleDriveHelper:
         # File body description
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded by WinTenCermin',
+            'description': 'Uploaded by Yasir Mirror Bot',
             'mimeType': mime_type,
         }
         if parent_id is not None:
@@ -483,7 +483,7 @@ class GoogleDriveHelper:
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
                                  title = 'Yasir Mirror Search',
                                  author_name='Yasir Mirror Bot',
-                                 author_url='https://github.com/yasirarism/WinTenCermin',
+                                 author_url='https://t.me/YMoviez',
                                  html_content=content)
         return
 
@@ -556,9 +556,9 @@ class GoogleDriveHelper:
 
             for content in self.telegraph_content :
                 self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                        title = 'WinTenCermin Search',
-                                                        author_name='WinTenCermin',
-                                                        author_url='https://github.com/WinTenDev/WinTenCermin',
+                                                        title = 'Pencarian Yasir Mirror Bot',
+                                                        author_name='YasirMirrorBot',
+                                                        author_url='https://t.me/YMoviez',
                                                         html_content=content
                                                         )['path'])
 
