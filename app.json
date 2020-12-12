@@ -10,12 +10,5 @@
   "repository": "https://github.com/imsawankumar/Torrent-Mirror-Bot",
   "success_url": "https://github.com/imsawankumar/Torrent-Mirror-Bot",
   "website": "https://github.com/imsawankumar/Torrent-Mirror-Bot",  
-  "env": {
-    "USE_SERVICE_ACCOUNTS": {
-      "description": "(Optional field) (Leave empty if unsure) Whether to use service accounts or not. For this to work see Using service accounts section below.",
-      "value": "",
-      "required": false
-    }
-  },
   "stack": "container"
 }
