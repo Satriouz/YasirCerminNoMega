@@ -13,13 +13,13 @@ URL_REGEX = r"(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+"
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading...✅"
-    STATUS_DOWNLOADING = "Downloading...📥"
-    STATUS_WAITING = "Queued...📝"
-    STATUS_FAILED = "Failed 🚫. Cleaning download"
-    STATUS_CANCELLED = "Cancelled ❎"
-    STATUS_ARCHIVING = "Archiving...🔐"
-    STATUS_EXTRACTING = "Extracting...📂"
+    STATUS_UPLOADING = "Mengupload...✅"
+    STATUS_DOWNLOADING = "Mengunduh...📥"
+    STATUS_WAITING = "Diantrikan...📝"
+    STATUS_FAILED = "Gagal 🚫. Membersihkan download"
+    STATUS_CANCELLED = "Dibatalkan ❎"
+    STATUS_ARCHIVING = "Mengarsipkan...🔐"
+    STATUS_EXTRACTING = "Mengekstrak...📂"
 
 
 PROGRESS_MAX_SIZE = 100 // 8
@@ -92,20 +92,20 @@ def get_readable_message():
     with download_dict_lock:
         msg = ""
         for download in list(download_dict.values()):
-            msg += f"<b>Filename :</b> <code>{download.name()}</code>"
-            msg += f"\n<b>Status :</b> <i>{download.status()}</i>"
+            msg += f"<b>💾 </b> <code>{download.name()}</code>"
+            msg += f"\n<b>⬇️ </b> <i>{download.status()}</i>"
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
                 msg += f"\n<code>{get_progress_bar_string(download)} {download.progress()}</code>" \
-                       f"\n<b>Downloaded :</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}" \
-                       f"\n<b>Speed :</b> {download.speed()}, \n<b>ETA:</b> {download.eta()} "
+                       f"\n<b>📦 Terdownload :</b> {get_readable_file_size(download.processed_bytes())} dari {download.size()}" \
+                       f"\n<b>⚡️ Kecepatan :</b> {download.speed()}, \n<b>⏱ ETA:</b> {download.eta()} "
                 # if hasattr(download, 'is_torrent'):
                 try:
-                    msg += f"\n<b>Info :- Seeders:</b> {download.aria_download().num_seeders}" \
+                    msg += f"\n<b>🧲 Seeders:</b> {download.aria_download().num_seeders}" \
                         f" & <b>Peers :</b> {download.aria_download().connections}"
                 except:
                     pass
             if download.status() == MirrorStatus.STATUS_DOWNLOADING:
-                msg += f"\n<b>GID</b>: <code>{download.gid()}</code>"
+                msg += f"\n<b>GID</b>: <code>/cancel {download.gid()}</code>"
             msg += "\n\n"
         return msg
 
